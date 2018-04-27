@@ -12,7 +12,7 @@ const Cryptocurrency = (props) => {
     percent_change_7d
    } = props.data;
   return (
-    <li className={"cryptocurrency " + id }>
+    <li className={"cryptocurrency " + id } key={id}>
       <p className="cryptocurrency-name">{name} ({symbol})</p>
       <h1>${ (+price_usd) }</h1>
       <p>{percent_change_1h}% 1hr</p>

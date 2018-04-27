@@ -58,7 +58,7 @@ class Blocks extends React.Component {
           id: "bitcoin-cash",
           name: "Bitcoin Cash",
           symbol: "BCH",
-          price_usd: "4",
+          price_usd: "5",
           percent_change_1h: "0",
           percent_change_24h: "0",
           percent_change_7d: "0"
@@ -67,7 +67,7 @@ class Blocks extends React.Component {
           id: "eos",
           name: "EOS",
           symbol: "EOS",
-          price_usd: "5",
+          price_usd: "6",
           percent_change_1h: "0",
           percent_change_24h: "0",
           percent_change_7d: "0"
@@ -76,13 +76,19 @@ class Blocks extends React.Component {
           id: "stellar",
           name: "Stellar",
           symbol: "XLM",
-          price_usd: "6",
+          price_usd: "7",
           percent_change_1h: "0",
           percent_change_24h: "0",
           percent_change_7d: "0"
         },
         {
-
+          id: "tron",
+          name: "TRON",
+          symbol: "TRX",
+          price_usd: "8",
+          percent_change_1h: "0",
+          percent_change_24h: "0",
+          percent_change_7d: "0"
         }
       ],
       isLoading: false
@@ -98,7 +104,7 @@ class Blocks extends React.Component {
   fetchData = () => {
     axios.get("https://api.coinmarketcap.com/v1/ticker/")
     .then((response) => {
-      const wanted = ["bitcoin", "ethereum", "ripple", "litecoin", "mixin", "bitcoin-cash", "eos", "stellar"];
+      const wanted = ["bitcoin", "ethereum", "ripple", "litecoin", "mixin", "bitcoin-cash", "eos", "stellar", "tron"];
       const result = response.data.filter((currency) => wanted.includes(currency.id));
       this.setState({ data: result, isLoading: false });
     })
@@ -112,11 +118,12 @@ class Blocks extends React.Component {
       }
 
       const blocks = this.state.data.map((currency) =>
-        <Cryptocurrency data={currency} key={currency.id} />
+        <Cryptocurrency data={currency} key={currency.id}/>
       );
       return (
         <div className="blocks-container">
-          <ul className="blocks">{blocks}</ul>
+          <ul className="blocks" >{blocks}</ul>
+          <p>Information updates every 10 seconds</p>
         </div>
       );
     }
