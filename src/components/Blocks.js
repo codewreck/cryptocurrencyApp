@@ -44,11 +44,13 @@ class Blocks extends React.Component {
           percent_change_24h: "0",
           percent_change_7d: "0"
         }
-      ]
+      ],
+      isLoading: false
     };
   }
 
   componentDidMount(){
+    this.setState({ isLoading: true });
     this.fetchData();
     setInterval(() => this.fetchData(), 10*1000);
   }
@@ -58,12 +60,17 @@ class Blocks extends React.Component {
     .then((response) => {
       const wanted = ["bitcoin", "ethereum", "ripple", "litecoin"];
       const result = response.data.filter((currency) => wanted.includes(currency.id));
-      this.setState({ data: result });
+      this.setState({ data: result, isLoading: false });
     })
     .catch((err) => console.log(err))
   }
-
     render(){
+      const { isLoading } = this.state;
+
+      if(isLoading){
+        return <p>Loading.....</p>
+      }
+
       const blocks = this.state.data.map((currency) =>
         <Cryptocurrency data={currency} key={currency.id} />
       );
