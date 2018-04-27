@@ -5,6 +5,7 @@ import axios from 'axios';
 class Blocks extends React.Component {
   constructor(props){
     super(props);
+    this.fetchData = this.fetchData.bind(this);
     this.state = {
       data: [
         {
@@ -48,6 +49,11 @@ class Blocks extends React.Component {
   }
 
   componentDidMount(){
+    this.fetchData();
+    setInterval(() => this.fetchData(), 10*1000);
+  }
+
+  fetchData = () => {
     axios.get("https://api.coinmarketcap.com/v1/ticker/")
     .then((response) => {
       const wanted = ["bitcoin", "ethereum", "ripple", "litecoin"];

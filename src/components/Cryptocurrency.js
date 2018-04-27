@@ -12,8 +12,8 @@ const Cryptocurrency = (props) => {
    } = props.data;
   return (
     <li>
-      <p>{name} ({symbol})</p>
-      <h1>${ (+price_usd) }</h1>
+      <h2>{name} ({symbol})</h2>
+      <h3>${ (+price_usd) }</h3>
       <p>{percent_change_1h}% 1hr</p>
       <p>{percent_change_24h}% 24hrs</p>
       <p>{percent_change_7d}% 7days</p>
