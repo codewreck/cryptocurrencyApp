@@ -1,5 +1,6 @@
 import React from 'react';
 import Cryptocurrency from './Cryptocurrency';
+import axios from 'axios';
 
 class Blocks extends React.Component {
   constructor(props){
@@ -45,6 +46,17 @@ class Blocks extends React.Component {
       ]
     };
   }
+
+  componentDidMount(){
+    axios.get("https://api.coinmarketcap.com/v1/ticker/")
+    .then((response) => {
+      const wanted = ["bitcoin", "ethereum", "ripple", "litecoin"];
+      const result = response.data.filter((currency) => wanted.includes(currency.id));
+      this.setState({ data: result });
+    })
+    .catch((err) => console.log(err))
+  }
+
     render(){
       const blocks = this.state.data.map((currency) =>
         <Cryptocurrency data={currency} key={currency.id} />
