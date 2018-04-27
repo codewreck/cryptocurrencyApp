@@ -8,7 +8,9 @@ class App extends React.Component {
   render(){
     return (
       <div>
-        <h2>CryptocurrencyApp</h2>
+        <div>
+          <h2>CryptocurrencyApp</h2>
+        </div>
         <Blocks />
       </div>
     )

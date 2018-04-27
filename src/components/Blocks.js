@@ -1,4 +1,5 @@
 import React from 'react';
+import Cryptocurrency from './Cryptocurrency';
 
 class Blocks extends React.Component {
   constructor(props){
@@ -7,29 +8,46 @@ class Blocks extends React.Component {
       data: [
         {
           id: "bitcoin",
-          price: "0"
+          name: "Bitcoin",
+          symbol: "BTC",
+          price_usd: "1",
+          percent_change_1h: "0",
+          percent_change_24h: "0",
+          percent_change_7d: "0"
         },
         {
           id: "ethereum",
-          price: "1"
+          name: "Ethereum",
+          symbol: "ETH",
+          price_usd: "2",
+          percent_change_1h: "0",
+          percent_change_24h: "0",
+          percent_change_7d: "0"
         },
         {
           id: "ripple",
-          price: "2"
+          name: "Ripple",
+          symbol: "XRP",
+          price_usd: "3",
+          percent_change_1h: "0",
+          percent_change_24h: "0",
+          percent_change_7d: "0"
         },
         {
           id: "litecoin",
-          price: "3"
+          name: "Litecoin",
+          symbol: "ETH",
+          price_usd: "2",
+          percent_change_1h: "0",
+          percent_change_24h: "0",
+          percent_change_7d: "0"
         }
       ]
     };
   }
     render(){
       const blocks = this.state.data.map((currency) =>
-        <span key={currency.id}>
-          <h3>{currency.id}</h3>
-          <h4>{currency.price}</h4>
-        </span>
+        <Cryptocurrency data={currency} key={currency.id} />
       );
       return (
         <div>
