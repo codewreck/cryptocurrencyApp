@@ -1,0 +1,55 @@
+.cryptocurrency {
+  padding: 1rem 2rem 2rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+  min-width: 9rem;
+  border: solid 1px rgba(0, 0, 0, 0.05);
+}
+
+.cryptocurrency p {
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.cryptocurrency-name {
+  font-size: 1.25rem;
+}
+
+.bitcoin {
+  background-color: #fbe2c3;
+  border-bottom: solid 4px #f7931a;
+}
+
+.ethereum {
+  background-color: #c2c9ff;
+  border-bottom: solid 4px #454a75;
+}
+
+.litecoin {
+  background-color: #ececec;
+  border-bottom: solid 4px #bebebe;
+}
+
+.ripple {
+  background-color: #7CB97E;
+  border-bottom: solid 4px #649565;
+}
+
+.mixin{
+  background-color: #666756;
+  border-bottom: solid 4px #2F302B;
+}
+
+.bitcoin-cash{
+  background-color: #A76154;
+  border-bottom: solid 4px #7F473C;
+}
+
+.eos {
+  background-color: #8DA895;
+  border-bottom: solid 4px #64776A;
+}
+
+.stellar {
+  background-color: #EAC4C4;
+  border-bottom: solid 4px #C08C8C;
+}

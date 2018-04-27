@@ -1,6 +1,7 @@
 import React from 'react';
 import Cryptocurrency from './Cryptocurrency';
 import axios from 'axios';
+import '../styles/Blocks.css';
 
 class Blocks extends React.Component {
   constructor(props){
@@ -43,6 +44,45 @@ class Blocks extends React.Component {
           percent_change_1h: "0",
           percent_change_24h: "0",
           percent_change_7d: "0"
+        },
+        {
+          id: "mixin",
+          name: "Mixin",
+          symbol: "XIN",
+          price_usd: "4",
+          percent_change_1h: "0",
+          percent_change_24h: "0",
+          percent_change_7d: "0"
+        },
+        {
+          id: "bitcoin-cash",
+          name: "Bitcoin Cash",
+          symbol: "BCH",
+          price_usd: "4",
+          percent_change_1h: "0",
+          percent_change_24h: "0",
+          percent_change_7d: "0"
+        },
+        {
+          id: "eos",
+          name: "EOS",
+          symbol: "EOS",
+          price_usd: "5",
+          percent_change_1h: "0",
+          percent_change_24h: "0",
+          percent_change_7d: "0"
+        },
+        {
+          id: "stellar",
+          name: "Stellar",
+          symbol: "XLM",
+          price_usd: "6",
+          percent_change_1h: "0",
+          percent_change_24h: "0",
+          percent_change_7d: "0"
+        },
+        {
+
         }
       ],
       isLoading: false
@@ -58,7 +98,7 @@ class Blocks extends React.Component {
   fetchData = () => {
     axios.get("https://api.coinmarketcap.com/v1/ticker/")
     .then((response) => {
-      const wanted = ["bitcoin", "ethereum", "ripple", "litecoin"];
+      const wanted = ["bitcoin", "ethereum", "ripple", "litecoin", "mixin", "bitcoin-cash", "eos", "stellar"];
       const result = response.data.filter((currency) => wanted.includes(currency.id));
       this.setState({ data: result, isLoading: false });
     })
@@ -75,8 +115,8 @@ class Blocks extends React.Component {
         <Cryptocurrency data={currency} key={currency.id} />
       );
       return (
-        <div>
-          <span>{blocks}</span>
+        <div className="blocks-container">
+          <ul className="blocks">{blocks}</ul>
         </div>
       );
     }
